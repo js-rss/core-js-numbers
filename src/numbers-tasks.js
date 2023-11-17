@@ -106,9 +106,14 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,-1)    => π
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
+ * http://ru.solverbook.com/spravochnik/vektory/ugol-mezhdu-vektorami/
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const A = Math.sqrt(x1 ** 2 + y1 ** 2);
+  const B = Math.sqrt(x2 ** 2 + y2 ** 2);
+  const AB = x1 * x2 + y1 * y2;
+  const CS = AB / (A * B);
+  return Math.acos(CS);
 }
 
 /**
@@ -257,8 +262,9 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  const m = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+  return m[index - 1] || 0;
 }
 
 /**
